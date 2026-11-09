@@ -1,0 +1,172 @@
+# FuftiAC — Paper, Purpur, Folia, Spigot 1.16.5-26.3+ Java 21
+# Префикс зафиксирован в коде и не подлежит изменению через конфиг.
+# Плейсхолдеры: %player% %check% %vl% %max% %bar% %detail% %ping% %world% %x% %y% %z% %reason% %duration% %prefix% # если нужно ставьте в конфиге для кастомизации
+
+alerts:
+  format: "%prefix% <white>%player%</white> <gray>флагнул</gray> <gradient:#38BDF8:#818CF8>%check%</gradient> <dark_gray>[<white>%vl%</white><gray>/</gray><gray>%max%</gray>]</dark_gray> <dark_gray>›</dark_gray> <gray>%detail%</gray>"
+  hover: "<gradient:#38BDF8:#818CF8><bold>%check%</bold></gradient>\n<dark_gray>━━━━━━━━━━━━━━━━━━━━━━━━</dark_gray>\n<gray>Игрок:</gray> <white>%player%</white>\n<gray>Нарушение:</gray> <aqua>%vl%</aqua><gray>/</gray><gray>%max%</gray>\n<gray>Пинг:</gray> <white>%ping%</white><gray>ms</gray>\n<gray>Координаты:</gray> <white>%x% %y% %z%</white> <dark_gray>(%world%)</dark_gray>\n<gray>Инфо:</gray> <white>%detail%</white>\n<dark_gray>━━━━━━━━━━━━━━━━━━━━━━━━</dark_gray>\n<yellow>Клик — телепортироваться</yellow>"
+
+vl-decay-seconds: 120
+
+punishments:
+  enabled: false
+
+animation:
+  enabled: false
+  ticks: 40
+  rise-speed: 0.32
+  sound: false
+  particles: false
+
+messages:
+  no-permission: "%prefix% <red>У вас недостаточно прав для выполнения этой команды.</red>"
+  player-not-found: "%prefix% <red>Игрок <white>%player%</white> не найден в сети.</red>"
+  alerts-on: "%prefix% <gray>Оповещения:</gray> <green>включены</green>"
+  alerts-off: "%prefix% <gray>Оповещения:</gray> <red>выключены</red>"
+  invalid-duration: "%prefix% <red>Неверный формат времени. Пример: <white>1h</white><gray>, </gray><white>1d</white><gray>, </gray><white>7d</white></red>"
+  usage-ban: "%prefix% <gray>Использование:</gray> <aqua>/fuftiac ban <ник> <время> [причина]</aqua>"
+  usage-unban: "%prefix% <gray>Использование:</gray> <aqua>/fuftiac unban <ник></aqua>"
+  usage-info: "%prefix% <gray>Использование:</gray> <aqua>/fuftiac info <ник></aqua>"
+  usage: "%prefix% <gradient:#38BDF8:#818CF8>Команды:</gradient> <white>/fuftiac</white> <aqua>[ban | unban | info | alerts | punish | reload]</aqua>"
+  banned: "%prefix% <white>%player%</white> <gray>был заблокирован на</gray> <aqua>%duration%</aqua><dark_gray>. </dark_gray><gray>Причина:</gray> <white>%reason%</white>"
+  unbanned: "%prefix% <white>%player%</white> <green>успешно разблокирован.</green>"
+  punish-on: "%prefix% <gray>Автонаказания:</gray> <green>включены</green>"
+  punish-off: "%prefix% <gray>Автонаказания:</gray> <yellow>выключены</yellow> <dark_gray>(только алерты и откат)</dark_gray>"
+  reload: "%prefix% <green>Конфигурация успешно перезагружена!</green>"
+  kick-screen: "<gradient:#38BDF8:#818CF8><bold>FuftiAC</bold></gradient>\n\n<gray>Вы были отстранены от игры</gray>\n<red>%reason%</red>"
+  punish-broadcast: "%prefix% <white>%player%</white> <gray>наказан за</gray> <aqua>%check%</aqua>"
+  info-header: "%prefix% <gradient:#38BDF8:#818CF8><bold>Статистика игрока</bold></gradient> <white>%player%</white>"
+  info-line: "<dark_gray> › </dark_gray><white>%check%</white> <dark_gray>—</dark_gray> <aqua>%vl%</aqua><gray>/</gray><gray>%max%</gray> VL %bar%"
+
+checks:
+  FuftiACElytraSwap:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    min-speed: 0.16
+  FuftiACGuiMove:
+    enabled: true
+    max-vl: 3
+    punish: ""
+  FuftiACTargetStrafe:
+    enabled: true
+    max-vl: 6
+    punish: ""
+    min-speed: 0.18
+    circle-ticks: 10
+    combat-ms: 2500
+  FuftiACScaffold:
+    enabled: true
+    max-vl: 3
+    punish: ""
+  FuftiACSpider:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    ghost-ms: 600
+    min-y: 0.12
+  FuftiACNPC:
+    enabled: true
+    max-vl: 2
+    punish: ""
+    hits: 2
+    window-ms: 30000
+    radius: 2.55
+    spin-speed: 0.18
+    invisible: true
+    combat-ms: 8000
+  FuftiACHitbox:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    max-reach: 3.5
+    buffer: 4
+  FuftiACWallHit:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    min-distance: 1.15
+    buffer: 2
+  FuftiACSpeed:
+    enabled: true
+    max-vl: 5
+    punish: ""
+    buffer: 3
+  FuftiACNoSlow:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    legit: true
+    buffer: 2
+  FuftiACNoWeb:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    max-speed: 0.09
+    buffer: 2
+  FuftiACReach:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    max-reach: 3.1
+    buffer: 2
+  FuftiACFly:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    buffer: 2
+  FuftiACJesus:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    buffer: 2
+  FuftiACNoFall:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 1
+  FuftiACStep:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 1
+  FuftiACAirJump:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 1
+  FuftiACAirStuck:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 3
+  FuftiACVelocity:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 1
+  FuftiACVelocity Legit:
+    enabled: true
+    max-vl: 4
+    punish: ""
+    buffer: 2
+  FuftiACBoatFly:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 2
+  FuftiACNoClip:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 1
+  FuftiACElytraRecast:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 2
+  FuftiACNuker:
+    enabled: true
+    max-vl: 3
+    punish: ""
+    buffer: 2

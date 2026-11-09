@@ -1,0 +1,47 @@
+name: FuftiAC
+version: ${project.version}
+main: ru.fufti.fuftiac.FuftiAC
+api-version: "1.16"
+folia-supported: true
+author: Fufti
+description: FuftiAC anti-cheat for Paper/Purpur/Folia/Spigot 1.16.5-26.3+ Java 21
+softdepend:
+  - ProtocolLib
+  - ProtocolSupport
+  - ViaVersion
+  - ViaBackwards
+  - ViaRewind
+  - Geyser-Spigot
+  - WorldEdit
+  - WorldGuard
+  - FastAsyncWorldEdit
+
+commands:
+  fuftiac:
+    description: Команды FuftiAC
+    usage: /fuftiac <ban|unban|info|alerts|punish>
+  alerts:
+    description: Включить или выключить алерты FuftiAC
+    permission: fuftiac.alerts
+
+permissions:
+  fuftiac.alerts:
+    description: Видеть алерты и переключать их
+    default: true
+  fuftiac.ban:
+    description: Банить через /fuftiac ban
+    default: op
+  fuftiac.info:
+    description: Смотреть информацию игрока
+    default: op
+  fuftiac.unban:
+    description: Разбан через /fuftiac unban
+    default: op
+  fuftiac.admin:
+    description: Все команды FuftiAC
+    default: op
+    children:
+      fuftiac.alerts: true
+      fuftiac.ban: true
+      fuftiac.unban: true
+      fuftiac.info: true
